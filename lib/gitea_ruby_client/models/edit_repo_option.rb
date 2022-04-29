@@ -16,6 +16,12 @@ require 'time'
 module GiteaRubyClient
   # EditRepoOption options when editing a repository's properties
   class EditRepoOption
+    # update the password used for mirror remote-tracking
+    attr_accessor :mirror_password
+
+    # update the username used for mirror remote-tracking
+    attr_accessor :mirror_username
+
     # either `true` to allow mark pr as merged manually, or `false` to prevent it. `has_pull_requests` must be `true`.
     attr_accessor :allow_manual_merge
 
@@ -51,6 +57,9 @@ module GiteaRubyClient
 
     # a short description of the repository.
     attr_accessor :description
+
+    # enable prune - remove obsolete remote-tracking references
+    attr_accessor :enable_prune
 
     attr_accessor :external_tracker
 
@@ -91,6 +100,8 @@ module GiteaRubyClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'mirror_password' => :'MirrorPassword',
+        :'mirror_username' => :'MirrorUsername',
         :'allow_manual_merge' => :'allow_manual_merge',
         :'allow_merge_commits' => :'allow_merge_commits',
         :'allow_rebase' => :'allow_rebase',
@@ -103,6 +114,7 @@ module GiteaRubyClient
         :'default_delete_branch_after_merge' => :'default_delete_branch_after_merge',
         :'default_merge_style' => :'default_merge_style',
         :'description' => :'description',
+        :'enable_prune' => :'enable_prune',
         :'external_tracker' => :'external_tracker',
         :'external_wiki' => :'external_wiki',
         :'has_issues' => :'has_issues',
@@ -127,6 +139,8 @@ module GiteaRubyClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'mirror_password' => :'String',
+        :'mirror_username' => :'String',
         :'allow_manual_merge' => :'Boolean',
         :'allow_merge_commits' => :'Boolean',
         :'allow_rebase' => :'Boolean',
@@ -139,6 +153,7 @@ module GiteaRubyClient
         :'default_delete_branch_after_merge' => :'Boolean',
         :'default_merge_style' => :'String',
         :'description' => :'String',
+        :'enable_prune' => :'Boolean',
         :'external_tracker' => :'ExternalTracker',
         :'external_wiki' => :'ExternalWiki',
         :'has_issues' => :'Boolean',
@@ -175,6 +190,14 @@ module GiteaRubyClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'mirror_password')
+        self.mirror_password = attributes[:'mirror_password']
+      end
+
+      if attributes.key?(:'mirror_username')
+        self.mirror_username = attributes[:'mirror_username']
+      end
 
       if attributes.key?(:'allow_manual_merge')
         self.allow_manual_merge = attributes[:'allow_manual_merge']
@@ -222,6 +245,10 @@ module GiteaRubyClient
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'enable_prune')
+        self.enable_prune = attributes[:'enable_prune']
       end
 
       if attributes.key?(:'external_tracker')
@@ -295,6 +322,8 @@ module GiteaRubyClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          mirror_password == o.mirror_password &&
+          mirror_username == o.mirror_username &&
           allow_manual_merge == o.allow_manual_merge &&
           allow_merge_commits == o.allow_merge_commits &&
           allow_rebase == o.allow_rebase &&
@@ -307,6 +336,7 @@ module GiteaRubyClient
           default_delete_branch_after_merge == o.default_delete_branch_after_merge &&
           default_merge_style == o.default_merge_style &&
           description == o.description &&
+          enable_prune == o.enable_prune &&
           external_tracker == o.external_tracker &&
           external_wiki == o.external_wiki &&
           has_issues == o.has_issues &&
@@ -331,7 +361,7 @@ module GiteaRubyClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_manual_merge, allow_merge_commits, allow_rebase, allow_rebase_explicit, allow_rebase_update, allow_squash_merge, archived, autodetect_manual_merge, default_branch, default_delete_branch_after_merge, default_merge_style, description, external_tracker, external_wiki, has_issues, has_projects, has_pull_requests, has_wiki, ignore_whitespace_conflicts, internal_tracker, mirror_interval, name, private, template, website].hash
+      [mirror_password, mirror_username, allow_manual_merge, allow_merge_commits, allow_rebase, allow_rebase_explicit, allow_rebase_update, allow_squash_merge, archived, autodetect_manual_merge, default_branch, default_delete_branch_after_merge, default_merge_style, description, enable_prune, external_tracker, external_wiki, has_issues, has_projects, has_pull_requests, has_wiki, ignore_whitespace_conflicts, internal_tracker, mirror_interval, name, private, template, website].hash
     end
 
     # Builds the object from hash

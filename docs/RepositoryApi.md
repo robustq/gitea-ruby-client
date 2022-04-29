@@ -6952,7 +6952,7 @@ end
 
 ## repo_get_editor_config
 
-> repo_get_editor_config(owner, repo, filepath)
+> repo_get_editor_config(owner, repo, filepath, opts)
 
 Get the EditorConfig definitions of a file in a repository
 
@@ -7002,10 +7002,13 @@ api_instance = GiteaRubyClient::RepositoryApi.new
 owner = 'owner_example' # String | owner of the repo
 repo = 'repo_example' # String | name of the repo
 filepath = 'filepath_example' # String | filepath of file to get
+opts = {
+  ref: 'ref_example' # String | The name of the commit/branch/tag. Default the repository’s default branch (usually master)
+}
 
 begin
   # Get the EditorConfig definitions of a file in a repository
-  api_instance.repo_get_editor_config(owner, repo, filepath)
+  api_instance.repo_get_editor_config(owner, repo, filepath, opts)
 rescue GiteaRubyClient::ApiError => e
   puts "Error when calling RepositoryApi->repo_get_editor_config: #{e}"
 end
@@ -7015,12 +7018,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> repo_get_editor_config_with_http_info(owner, repo, filepath)
+> <Array(nil, Integer, Hash)> repo_get_editor_config_with_http_info(owner, repo, filepath, opts)
 
 ```ruby
 begin
   # Get the EditorConfig definitions of a file in a repository
-  data, status_code, headers = api_instance.repo_get_editor_config_with_http_info(owner, repo, filepath)
+  data, status_code, headers = api_instance.repo_get_editor_config_with_http_info(owner, repo, filepath, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -7036,6 +7039,7 @@ end
 | **owner** | **String** | owner of the repo |  |
 | **repo** | **String** | name of the repo |  |
 | **filepath** | **String** | filepath of file to get |  |
+| **ref** | **String** | The name of the commit/branch/tag. Default the repository’s default branch (usually master) | [optional] |
 
 ### Return type
 
@@ -11867,7 +11871,7 @@ end
 
 ## repo_test_hook
 
-> repo_test_hook(owner, repo, id)
+> repo_test_hook(owner, repo, id, opts)
 
 Test a push webhook
 
@@ -11917,10 +11921,13 @@ api_instance = GiteaRubyClient::RepositoryApi.new
 owner = 'owner_example' # String | owner of the repo
 repo = 'repo_example' # String | name of the repo
 id = 789 # Integer | id of the hook to test
+opts = {
+  ref: 'ref_example' # String | The name of the commit/branch/tag. Default the repository’s default branch (usually master)
+}
 
 begin
   # Test a push webhook
-  api_instance.repo_test_hook(owner, repo, id)
+  api_instance.repo_test_hook(owner, repo, id, opts)
 rescue GiteaRubyClient::ApiError => e
   puts "Error when calling RepositoryApi->repo_test_hook: #{e}"
 end
@@ -11930,12 +11937,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> repo_test_hook_with_http_info(owner, repo, id)
+> <Array(nil, Integer, Hash)> repo_test_hook_with_http_info(owner, repo, id, opts)
 
 ```ruby
 begin
   # Test a push webhook
-  data, status_code, headers = api_instance.repo_test_hook_with_http_info(owner, repo, id)
+  data, status_code, headers = api_instance.repo_test_hook_with_http_info(owner, repo, id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -11951,6 +11958,7 @@ end
 | **owner** | **String** | owner of the repo |  |
 | **repo** | **String** | name of the repo |  |
 | **id** | **Integer** | id of the hook to test |  |
+| **ref** | **String** | The name of the commit/branch/tag. Default the repository’s default branch (usually master) | [optional] |
 
 ### Return type
 

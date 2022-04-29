@@ -227,6 +227,10 @@ Class | Method | HTTP request | Description
 *GiteaRubyClient::OrganizationApi* | [**org_remove_team_member**](docs/OrganizationApi.md#org_remove_team_member) | **DELETE** /teams/{id}/members/{username} | Remove a team member
 *GiteaRubyClient::OrganizationApi* | [**org_remove_team_repository**](docs/OrganizationApi.md#org_remove_team_repository) | **DELETE** /teams/{id}/repos/{org}/{repo} | Remove a repository from a team
 *GiteaRubyClient::OrganizationApi* | [**team_search**](docs/OrganizationApi.md#team_search) | **GET** /orgs/{org}/teams/search | Search for teams within an organization
+*GiteaRubyClient::PackageApi* | [**delete_package**](docs/PackageApi.md#delete_package) | **DELETE** /packages/{owner}/{type}/{name}/{version} | Delete a package
+*GiteaRubyClient::PackageApi* | [**get_package**](docs/PackageApi.md#get_package) | **GET** /packages/{owner}/{type}/{name}/{version} | Gets a package
+*GiteaRubyClient::PackageApi* | [**list_package_files**](docs/PackageApi.md#list_package_files) | **GET** /packages/{owner}/{type}/{name}/{version}/files | Gets all files of a package
+*GiteaRubyClient::PackageApi* | [**list_packages**](docs/PackageApi.md#list_packages) | **GET** /packages/{owner} | Gets all packages of an owner
 *GiteaRubyClient::RepositoryApi* | [**accept_repo_transfer**](docs/RepositoryApi.md#accept_repo_transfer) | **POST** /repos/{owner}/{repo}/transfer/accept | Accept a repo transfer
 *GiteaRubyClient::RepositoryApi* | [**create_current_user_repo**](docs/RepositoryApi.md#create_current_user_repo) | **POST** /user/repos | Create a repository
 *GiteaRubyClient::RepositoryApi* | [**create_fork**](docs/RepositoryApi.md#create_fork) | **POST** /repos/{owner}/{repo}/forks | Fork a repository
@@ -522,6 +526,8 @@ Class | Method | HTTP request | Description
  - [GiteaRubyClient::Organization](docs/Organization.md)
  - [GiteaRubyClient::OrganizationPermissions](docs/OrganizationPermissions.md)
  - [GiteaRubyClient::PRBranchInfo](docs/PRBranchInfo.md)
+ - [GiteaRubyClient::Package](docs/Package.md)
+ - [GiteaRubyClient::PackageFile](docs/PackageFile.md)
  - [GiteaRubyClient::PayloadCommit](docs/PayloadCommit.md)
  - [GiteaRubyClient::PayloadCommitVerification](docs/PayloadCommitVerification.md)
  - [GiteaRubyClient::PayloadUser](docs/PayloadUser.md)

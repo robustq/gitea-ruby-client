@@ -921,6 +921,7 @@ describe 'RepositoryApi' do
   # @param repo name of the repo
   # @param filepath filepath of file to get
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :ref The name of the commit/branch/tag. Default the repository’s default branch (usually master)
   # @return [nil]
   describe 'repo_get_editor_config test' do
     it 'should work' do
@@ -1575,6 +1576,7 @@ describe 'RepositoryApi' do
   # @param repo name of the repo
   # @param id id of the hook to test
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :ref The name of the commit/branch/tag. Default the repository’s default branch (usually master)
   # @return [nil]
   describe 'repo_test_hook test' do
     it 'should work' do

@@ -14,44 +14,32 @@ require 'date'
 require 'time'
 
 module GiteaRubyClient
-  # EditPullRequestOption options when modify pull request
-  class EditPullRequestOption
-    attr_accessor :allow_maintainer_edit
+  # PackageFile represents a package file
+  class PackageFile
+    attr_accessor :size
 
-    attr_accessor :assignee
+    attr_accessor :id
 
-    attr_accessor :assignees
+    attr_accessor :md5
 
-    attr_accessor :base
+    attr_accessor :name
 
-    attr_accessor :body
+    attr_accessor :sha1
 
-    attr_accessor :due_date
+    attr_accessor :sha256
 
-    attr_accessor :labels
-
-    attr_accessor :milestone
-
-    attr_accessor :state
-
-    attr_accessor :title
-
-    attr_accessor :unset_due_date
+    attr_accessor :sha512
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'allow_maintainer_edit' => :'allow_maintainer_edit',
-        :'assignee' => :'assignee',
-        :'assignees' => :'assignees',
-        :'base' => :'base',
-        :'body' => :'body',
-        :'due_date' => :'due_date',
-        :'labels' => :'labels',
-        :'milestone' => :'milestone',
-        :'state' => :'state',
-        :'title' => :'title',
-        :'unset_due_date' => :'unset_due_date'
+        :'size' => :'Size',
+        :'id' => :'id',
+        :'md5' => :'md5',
+        :'name' => :'name',
+        :'sha1' => :'sha1',
+        :'sha256' => :'sha256',
+        :'sha512' => :'sha512'
       }
     end
 
@@ -63,17 +51,13 @@ module GiteaRubyClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'allow_maintainer_edit' => :'Boolean',
-        :'assignee' => :'String',
-        :'assignees' => :'Array<String>',
-        :'base' => :'String',
-        :'body' => :'String',
-        :'due_date' => :'Time',
-        :'labels' => :'Array<Integer>',
-        :'milestone' => :'Integer',
-        :'state' => :'String',
-        :'title' => :'String',
-        :'unset_due_date' => :'Boolean'
+        :'size' => :'Integer',
+        :'id' => :'Integer',
+        :'md5' => :'String',
+        :'name' => :'String',
+        :'sha1' => :'String',
+        :'sha256' => :'String',
+        :'sha512' => :'String'
       }
     end
 
@@ -87,63 +71,43 @@ module GiteaRubyClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `GiteaRubyClient::EditPullRequestOption` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `GiteaRubyClient::PackageFile` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `GiteaRubyClient::EditPullRequestOption`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `GiteaRubyClient::PackageFile`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'allow_maintainer_edit')
-        self.allow_maintainer_edit = attributes[:'allow_maintainer_edit']
+      if attributes.key?(:'size')
+        self.size = attributes[:'size']
       end
 
-      if attributes.key?(:'assignee')
-        self.assignee = attributes[:'assignee']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'assignees')
-        if (value = attributes[:'assignees']).is_a?(Array)
-          self.assignees = value
-        end
+      if attributes.key?(:'md5')
+        self.md5 = attributes[:'md5']
       end
 
-      if attributes.key?(:'base')
-        self.base = attributes[:'base']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'body')
-        self.body = attributes[:'body']
+      if attributes.key?(:'sha1')
+        self.sha1 = attributes[:'sha1']
       end
 
-      if attributes.key?(:'due_date')
-        self.due_date = attributes[:'due_date']
+      if attributes.key?(:'sha256')
+        self.sha256 = attributes[:'sha256']
       end
 
-      if attributes.key?(:'labels')
-        if (value = attributes[:'labels']).is_a?(Array)
-          self.labels = value
-        end
-      end
-
-      if attributes.key?(:'milestone')
-        self.milestone = attributes[:'milestone']
-      end
-
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'unset_due_date')
-        self.unset_due_date = attributes[:'unset_due_date']
+      if attributes.key?(:'sha512')
+        self.sha512 = attributes[:'sha512']
       end
     end
 
@@ -165,17 +129,13 @@ module GiteaRubyClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          allow_maintainer_edit == o.allow_maintainer_edit &&
-          assignee == o.assignee &&
-          assignees == o.assignees &&
-          base == o.base &&
-          body == o.body &&
-          due_date == o.due_date &&
-          labels == o.labels &&
-          milestone == o.milestone &&
-          state == o.state &&
-          title == o.title &&
-          unset_due_date == o.unset_due_date
+          size == o.size &&
+          id == o.id &&
+          md5 == o.md5 &&
+          name == o.name &&
+          sha1 == o.sha1 &&
+          sha256 == o.sha256 &&
+          sha512 == o.sha512
     end
 
     # @see the `==` method
@@ -187,7 +147,7 @@ module GiteaRubyClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allow_maintainer_edit, assignee, assignees, base, body, due_date, labels, milestone, state, title, unset_due_date].hash
+      [size, id, md5, name, sha1, sha256, sha512].hash
     end
 
     # Builds the object from hash

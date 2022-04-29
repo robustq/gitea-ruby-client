@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **allow_maintainer_edit** | **Boolean** |  | [optional] |
 | **assignee** | **String** |  | [optional] |
 | **assignees** | **Array&lt;String&gt;** |  | [optional] |
 | **base** | **String** |  | [optional] |
@@ -21,6 +22,7 @@
 require 'gitea_ruby_client'
 
 instance = GiteaRubyClient::EditPullRequestOption.new(
+  allow_maintainer_edit: null,
   assignee: null,
   assignees: null,
   base: null,

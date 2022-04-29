@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **allow_maintainer_edit** | **Boolean** |  | [optional] |
 | **assignee** | [**User**](User.md) |  | [optional] |
 | **assignees** | [**Array&lt;User&gt;**](User.md) |  | [optional] |
 | **base** | [**PRBranchInfo**](PRBranchInfo.md) |  | [optional] |
@@ -39,6 +40,7 @@
 require 'gitea_ruby_client'
 
 instance = GiteaRubyClient::PullRequest.new(
+  allow_maintainer_edit: null,
   assignee: null,
   assignees: null,
   base: null,

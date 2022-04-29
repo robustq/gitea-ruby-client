@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.4.0
 =end
 
 module GiteaRubyClient
-  VERSION = '1.0.0'
+  VERSION = '1.0.1'
 end

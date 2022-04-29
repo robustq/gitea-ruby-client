@@ -25,6 +25,12 @@ describe GiteaRubyClient::PullRequest do
       expect(instance).to be_instance_of(GiteaRubyClient::PullRequest)
     end
   end
+  describe 'test attribute "allow_maintainer_edit"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "assignee"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

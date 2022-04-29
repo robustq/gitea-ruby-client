@@ -4977,6 +4977,7 @@ module GiteaRubyClient
     # @param repo [String] name of the repo
     # @param filepath [String] filepath of file to get
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :ref The name of the commit/branch/tag. Default the repository’s default branch (usually master)
     # @return [nil]
     def repo_get_editor_config(owner, repo, filepath, opts = {})
       repo_get_editor_config_with_http_info(owner, repo, filepath, opts)
@@ -4988,6 +4989,7 @@ module GiteaRubyClient
     # @param repo [String] name of the repo
     # @param filepath [String] filepath of file to get
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :ref The name of the commit/branch/tag. Default the repository’s default branch (usually master)
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def repo_get_editor_config_with_http_info(owner, repo, filepath, opts = {})
       if @api_client.config.debugging
@@ -5010,6 +5012,7 @@ module GiteaRubyClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'ref'] = opts[:'ref'] if !opts[:'ref'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -8501,6 +8504,7 @@ module GiteaRubyClient
     # @param repo [String] name of the repo
     # @param id [Integer] id of the hook to test
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :ref The name of the commit/branch/tag. Default the repository’s default branch (usually master)
     # @return [nil]
     def repo_test_hook(owner, repo, id, opts = {})
       repo_test_hook_with_http_info(owner, repo, id, opts)
@@ -8512,6 +8516,7 @@ module GiteaRubyClient
     # @param repo [String] name of the repo
     # @param id [Integer] id of the hook to test
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :ref The name of the commit/branch/tag. Default the repository’s default branch (usually master)
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def repo_test_hook_with_http_info(owner, repo, id, opts = {})
       if @api_client.config.debugging
@@ -8534,6 +8539,7 @@ module GiteaRubyClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'ref'] = opts[:'ref'] if !opts[:'ref'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

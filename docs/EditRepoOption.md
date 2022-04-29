@@ -4,6 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **mirror_password** | **String** | update the password used for mirror remote-tracking | [optional] |
+| **mirror_username** | **String** | update the username used for mirror remote-tracking | [optional] |
 | **allow_manual_merge** | **Boolean** | either &#x60;true&#x60; to allow mark pr as merged manually, or &#x60;false&#x60; to prevent it. &#x60;has_pull_requests&#x60; must be &#x60;true&#x60;. | [optional] |
 | **allow_merge_commits** | **Boolean** | either &#x60;true&#x60; to allow merging pull requests with a merge commit, or &#x60;false&#x60; to prevent merging pull requests with merge commits. &#x60;has_pull_requests&#x60; must be &#x60;true&#x60;. | [optional] |
 | **allow_rebase** | **Boolean** | either &#x60;true&#x60; to allow rebase-merging pull requests, or &#x60;false&#x60; to prevent rebase-merging. &#x60;has_pull_requests&#x60; must be &#x60;true&#x60;. | [optional] |
@@ -16,6 +18,7 @@
 | **default_delete_branch_after_merge** | **Boolean** | set to &#x60;true&#x60; to delete pr branch after merge by default | [optional] |
 | **default_merge_style** | **String** | set to a merge style to be used by this repository: \&quot;merge\&quot;, \&quot;rebase\&quot;, \&quot;rebase-merge\&quot;, or \&quot;squash\&quot;. &#x60;has_pull_requests&#x60; must be &#x60;true&#x60;. | [optional] |
 | **description** | **String** | a short description of the repository. | [optional] |
+| **enable_prune** | **Boolean** | enable prune - remove obsolete remote-tracking references | [optional] |
 | **external_tracker** | [**ExternalTracker**](ExternalTracker.md) |  | [optional] |
 | **external_wiki** | [**ExternalWiki**](ExternalWiki.md) |  | [optional] |
 | **has_issues** | **Boolean** | either &#x60;true&#x60; to enable issues for this repository or &#x60;false&#x60; to disable them. | [optional] |
@@ -36,6 +39,8 @@
 require 'gitea_ruby_client'
 
 instance = GiteaRubyClient::EditRepoOption.new(
+  mirror_password: null,
+  mirror_username: null,
   allow_manual_merge: null,
   allow_merge_commits: null,
   allow_rebase: null,
@@ -48,6 +53,7 @@ instance = GiteaRubyClient::EditRepoOption.new(
   default_delete_branch_after_merge: null,
   default_merge_style: null,
   description: null,
+  enable_prune: null,
   external_tracker: null,
   external_wiki: null,
   has_issues: null,

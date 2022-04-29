@@ -16,6 +16,8 @@ require 'time'
 module GiteaRubyClient
   # PullRequest represents a pull request
   class PullRequest
+    attr_accessor :allow_maintainer_edit
+
     attr_accessor :assignee
 
     attr_accessor :assignees
@@ -76,6 +78,7 @@ module GiteaRubyClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'allow_maintainer_edit' => :'allow_maintainer_edit',
         :'assignee' => :'assignee',
         :'assignees' => :'assignees',
         :'base' => :'base',
@@ -115,6 +118,7 @@ module GiteaRubyClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'allow_maintainer_edit' => :'Boolean',
         :'assignee' => :'User',
         :'assignees' => :'Array<User>',
         :'base' => :'PRBranchInfo',
@@ -166,6 +170,10 @@ module GiteaRubyClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'allow_maintainer_edit')
+        self.allow_maintainer_edit = attributes[:'allow_maintainer_edit']
+      end
 
       if attributes.key?(:'assignee')
         self.assignee = attributes[:'assignee']
@@ -302,6 +310,7 @@ module GiteaRubyClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          allow_maintainer_edit == o.allow_maintainer_edit &&
           assignee == o.assignee &&
           assignees == o.assignees &&
           base == o.base &&
@@ -341,7 +350,7 @@ module GiteaRubyClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assignee, assignees, base, body, closed_at, comments, created_at, diff_url, due_date, head, html_url, id, is_locked, labels, merge_base, merge_commit_sha, mergeable, merged, merged_at, merged_by, milestone, number, patch_url, state, title, updated_at, url, user].hash
+      [allow_maintainer_edit, assignee, assignees, base, body, closed_at, comments, created_at, diff_url, due_date, head, html_url, id, is_locked, labels, merge_base, merge_commit_sha, mergeable, merged, merged_at, merged_by, milestone, number, patch_url, state, title, updated_at, url, user].hash
     end
 
     # Builds the object from hash
